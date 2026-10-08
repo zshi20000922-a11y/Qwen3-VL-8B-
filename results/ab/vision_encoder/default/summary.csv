@@ -1,0 +1,2 @@
+variant,samples,prompt_tokens_mean,ttft_mean_ms,ttft_p50_ms,ttft_p95_ms,e2e_p50_ms
+default,5,2059,335.28,335.22,336.1,501.89

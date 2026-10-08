@@ -1,0 +1,44 @@
+{
+  "metadata": {
+    "label": "cuda_graph",
+    "generated_at": "2026-09-09T14:47:21.130176+00:00",
+    "repeats": 5,
+    "max_tokens": 256
+  },
+  "scenarios": [
+    {
+      "scenario": "concurrency_1",
+      "concurrency": 1,
+      "request_count": 5,
+      "input_tokens_mean": 2074,
+      "output_tokens_total": 1280,
+      "ttft_mean_ms": 32.41,
+      "ttft_p50_ms": 30.9,
+      "ttft_p95_ms": 36.15,
+      "e2e_p50_ms": 2691.1,
+      "e2e_p95_ms": 2692.78,
+      "decode_tok_s_mean": 96.62,
+      "aggregate_tok_s_mean": 95.43,
+      "gpu_util_mean_pct": 99.82,
+      "gpu_memory_peak_mib": 28757.0,
+      "gpu_power_mean_w": 510.11
+    },
+    {
+      "scenario": "concurrency_8",
+      "concurrency": 8,
+      "request_count": 40,
+      "input_tokens_mean": 2074,
+      "output_tokens_total": 10240,
+      "ttft_mean_ms": 169.03,
+      "ttft_p50_ms": 76.16,
+      "ttft_p95_ms": 554.36,
+      "e2e_p50_ms": 3126.51,
+      "e2e_p95_ms": 3610.77,
+      "decode_tok_s_mean": 84.41,
+      "aggregate_tok_s_mean": 635.67,
+      "gpu_util_mean_pct": 100.0,
+      "gpu_memory_peak_mib": 28756.0,
+      "gpu_power_mean_w": 466.47
+    }
+  ]
+}

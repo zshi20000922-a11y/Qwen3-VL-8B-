@@ -1,0 +1,10 @@
+{
+  "variant": "direct",
+  "offered": 160,
+  "accepted": 160,
+  "rejected": 0,
+  "wall_s": 29.545,
+  "accepted_ttft_p95_ms": 4470.07,
+  "slo_goodput_rps": 1.354,
+  "accepted_slo_pass_pct": 25.0
+}

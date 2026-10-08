@@ -1,0 +1,17 @@
+{
+  "annotations": {"list": []},
+  "editable": true,
+  "panels": [
+    {"type":"timeseries","title":"Running and waiting requests","gridPos":{"h":8,"w":12,"x":0,"y":0},"targets":[{"expr":"vllm:num_requests_running","legendFormat":"running"},{"expr":"vllm:num_requests_waiting","legendFormat":"waiting"}]},
+    {"type":"timeseries","title":"Generation throughput","gridPos":{"h":8,"w":12,"x":12,"y":0},"targets":[{"expr":"rate(vllm:generation_tokens_total[1m])","legendFormat":"output tok/s"},{"expr":"rate(vllm:prompt_tokens_total[1m])","legendFormat":"input tok/s"}]},
+    {"type":"timeseries","title":"Time to first token","gridPos":{"h":8,"w":12,"x":0,"y":8},"targets":[{"expr":"histogram_quantile(0.50, sum by(le) (rate(vllm:time_to_first_token_seconds_bucket[5m])))","legendFormat":"P50"},{"expr":"histogram_quantile(0.95, sum by(le) (rate(vllm:time_to_first_token_seconds_bucket[5m])))","legendFormat":"P95"}]},
+    {"type":"timeseries","title":"KV cache usage","gridPos":{"h":8,"w":12,"x":12,"y":8},"targets":[{"expr":"vllm:kv_cache_usage_perc","legendFormat":"GPU KV cache"}]}
+  ],
+  "schemaVersion": 41,
+  "tags": ["qwen3-vl", "vllm"],
+  "templating": {"list": []},
+  "time": {"from":"now-15m","to":"now"},
+  "title": "Qwen3-VL vLLM Inference",
+  "uid": "qwen3-vl-vllm",
+  "version": 1
+}

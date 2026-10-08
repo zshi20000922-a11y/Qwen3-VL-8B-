@@ -1,0 +1,2 @@
+variant,repeats,short_requests,short_ttft_p50_ms,short_ttft_p95_ms,short_tpot_p95_ms,long_ttft_p50_ms,long_e2e_p50_ms
+seqs_8,5,20,1052.01,1056.86,11.66,1103.29,1307.11

@@ -1,0 +1,14 @@
+{
+  "concurrency": 1,
+  "requests": 1,
+  "wall_seconds": 2.8694,
+  "total_output_tokens": 256,
+  "aggregate_output_tok_s": 89.22,
+  "mean_ttft_ms": 32.38,
+  "p50_e2e_ms": 2869.34,
+  "mean_per_request_decode_tok_s": 90.24,
+  "scenario": "steady",
+  "warmups": 1,
+  "image": "images/test.jpg",
+  "generated_at": "2026-09-05T15:44:03.180299+00:00"
+}

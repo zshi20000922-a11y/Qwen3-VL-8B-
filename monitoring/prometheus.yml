@@ -1,0 +1,7 @@
+global:
+  scrape_interval: 5s
+
+scrape_configs:
+  - job_name: qwen3_vl_vllm
+    static_configs:
+      - targets: ["host.docker.internal:8000"]

@@ -1,0 +1,10 @@
+{
+  "variant": "bf16",
+  "scenario": "steady",
+  "concurrency": 8,
+  "output_tokens": 2048,
+  "e2e_ms": 3265.1684320007917,
+  "output_tok_s": 627.2264486965686,
+  "image": "images/test.jpg",
+  "profiling_mode": "vllm_offline_single_process_same_model_kernels"
+}

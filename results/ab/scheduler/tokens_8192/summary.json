@@ -1,0 +1,17 @@
+{
+  "metadata": {
+    "long_tokens": 12000,
+    "short_concurrency": 4,
+    "stagger_ms": 50
+  },
+  "summary": {
+    "variant": "tokens_8192",
+    "repeats": 5,
+    "short_requests": 20,
+    "short_ttft_p50_ms": 1062.67,
+    "short_ttft_p95_ms": 1079.01,
+    "short_tpot_p95_ms": 11.55,
+    "long_ttft_p50_ms": 1081.2,
+    "long_e2e_p50_ms": 1306.37
+  }
+}

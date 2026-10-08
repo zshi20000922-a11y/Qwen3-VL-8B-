@@ -1,0 +1,220 @@
+{
+  "model": "Qwen3-VL-8B-Instruct",
+  "architecture": "dense",
+  "hardware": "NVIDIA GeForce RTX 5090 32GB",
+  "bf16_repeats": 5,
+  "fp8_repeats": 3,
+  "fixed_output_tokens": 256,
+  "fp8_vs_bf16": {
+    "c1_aggregate_throughput_gain_pct": 52.1,
+    "c8_aggregate_throughput_gain_pct": 53.1,
+    "weight_memory_reduction_pct": 40.3,
+    "kv_capacity_gain_pct": 73.7
+  },
+  "concurrency": [
+    {
+      "concurrency": 1,
+      "variant": "vLLM BF16",
+      "aggregate_tok_s": 89.53,
+      "ttft_p50_ms": 32.3,
+      "e2e_p95_ms": 2861.77
+    },
+    {
+      "concurrency": 1,
+      "variant": "vLLM FP8",
+      "aggregate_tok_s": 136.14,
+      "ttft_p50_ms": 27.37,
+      "e2e_p95_ms": 1881.63
+    },
+    {
+      "concurrency": 2,
+      "variant": "vLLM BF16",
+      "aggregate_tok_s": 172.7,
+      "ttft_p50_ms": 41.99,
+      "e2e_p95_ms": 2963.07
+    },
+    {
+      "concurrency": 2,
+      "variant": "vLLM FP8",
+      "aggregate_tok_s": 264.3,
+      "ttft_p50_ms": 34.59,
+      "e2e_p95_ms": 1937.5
+    },
+    {
+      "concurrency": 4,
+      "variant": "vLLM BF16",
+      "aggregate_tok_s": 327.1,
+      "ttft_p50_ms": 53.23,
+      "e2e_p95_ms": 3129.74
+    },
+    {
+      "concurrency": 4,
+      "variant": "vLLM FP8",
+      "aggregate_tok_s": 509.91,
+      "ttft_p50_ms": 45.5,
+      "e2e_p95_ms": 2008.57
+    },
+    {
+      "concurrency": 8,
+      "variant": "vLLM BF16",
+      "aggregate_tok_s": 619.63,
+      "ttft_p50_ms": 73.09,
+      "e2e_p95_ms": 3303.34
+    },
+    {
+      "concurrency": 8,
+      "variant": "vLLM FP8",
+      "aggregate_tok_s": 948.56,
+      "ttft_p50_ms": 62.84,
+      "e2e_p95_ms": 2157.7
+    }
+  ],
+  "resolution": [
+    {
+      "resolution": "640x360",
+      "variant": "Transformers BF16",
+      "input_tokens": 245,
+      "e2e_p50_ms": 3526.38,
+      "decode_tok_s": 73.28
+    },
+    {
+      "resolution": "640x360",
+      "variant": "vLLM BF16",
+      "input_tokens": 259,
+      "e2e_p50_ms": 2802.23,
+      "decode_tok_s": 92.06
+    },
+    {
+      "resolution": "640x360",
+      "variant": "vLLM FP8",
+      "input_tokens": 259,
+      "e2e_p50_ms": 1837.37,
+      "decode_tok_s": 140.57
+    },
+    {
+      "resolution": "1280x720",
+      "variant": "Transformers BF16",
+      "input_tokens": 905,
+      "e2e_p50_ms": 3627.41,
+      "decode_tok_s": 73.09
+    },
+    {
+      "resolution": "1280x720",
+      "variant": "vLLM BF16",
+      "input_tokens": 920,
+      "e2e_p50_ms": 2815.9,
+      "decode_tok_s": 91.75
+    },
+    {
+      "resolution": "1280x720",
+      "variant": "vLLM FP8",
+      "input_tokens": 920,
+      "e2e_p50_ms": 1847.31,
+      "decode_tok_s": 140.48
+    },
+    {
+      "resolution": "1920x1080",
+      "variant": "Transformers BF16",
+      "input_tokens": 2065,
+      "e2e_p50_ms": 3857.05,
+      "decode_tok_s": 71.87
+    },
+    {
+      "resolution": "1920x1080",
+      "variant": "vLLM BF16",
+      "input_tokens": 2081,
+      "e2e_p50_ms": 2849.7,
+      "decode_tok_s": 90.93
+    },
+    {
+      "resolution": "1920x1080",
+      "variant": "vLLM FP8",
+      "input_tokens": 2081,
+      "e2e_p50_ms": 1880.81,
+      "decode_tok_s": 138.4
+    },
+    {
+      "resolution": "3840x2160",
+      "variant": "Transformers BF16",
+      "input_tokens": 8185,
+      "e2e_p50_ms": 5811.2,
+      "decode_tok_s": 65.56
+    },
+    {
+      "resolution": "3840x2160",
+      "variant": "vLLM BF16",
+      "input_tokens": 8201,
+      "e2e_p50_ms": 3112.66,
+      "decode_tok_s": 84.26
+    },
+    {
+      "resolution": "3840x2160",
+      "variant": "vLLM FP8",
+      "input_tokens": 8201,
+      "e2e_p50_ms": 2144.71,
+      "decode_tok_s": 123.36
+    }
+  ],
+  "cold_vs_steady": [
+    {
+      "resolution": "640x360",
+      "variant": "vLLM BF16",
+      "cold_ttft_ms": 48.42,
+      "steady_ttft_median_ms": 21.26,
+      "steady_samples": 4
+    },
+    {
+      "resolution": "1280x720",
+      "variant": "vLLM BF16",
+      "cold_ttft_ms": 211.55,
+      "steady_ttft_median_ms": 25.01,
+      "steady_samples": 4
+    },
+    {
+      "resolution": "1920x1080",
+      "variant": "vLLM BF16",
+      "cold_ttft_ms": 332.23,
+      "steady_ttft_median_ms": 33.01,
+      "steady_samples": 4
+    },
+    {
+      "resolution": "3840x2160",
+      "variant": "vLLM BF16",
+      "cold_ttft_ms": 2012.13,
+      "steady_ttft_median_ms": 74.91,
+      "steady_samples": 4
+    },
+    {
+      "resolution": "640x360",
+      "variant": "vLLM FP8",
+      "cold_ttft_ms": 51.44,
+      "steady_ttft_median_ms": 15.85,
+      "steady_samples": 2
+    },
+    {
+      "resolution": "1280x720",
+      "variant": "vLLM FP8",
+      "cold_ttft_ms": 181.29,
+      "steady_ttft_median_ms": 23.04,
+      "steady_samples": 2
+    },
+    {
+      "resolution": "1920x1080",
+      "variant": "vLLM FP8",
+      "cold_ttft_ms": 247.79,
+      "steady_ttft_median_ms": 27.17,
+      "steady_samples": 2
+    },
+    {
+      "resolution": "3840x2160",
+      "variant": "vLLM FP8",
+      "cold_ttft_ms": 1669.05,
+      "steady_ttft_median_ms": 70.24,
+      "steady_samples": 2
+    }
+  ],
+  "quality_smoke": {
+    "cases": 4,
+    "conclusion": "Both variants produced usable descriptions/OCR, but answers differ and the sample is too small for an accuracy claim."
+  }
+}

@@ -1,0 +1,986 @@
+[
+  {
+    "profile": "bf16_steady_c8_offline",
+    "workload": {
+      "variant": "bf16",
+      "scenario": "steady",
+      "concurrency": 8,
+      "output_tokens": 2048,
+      "e2e_ms": 3265.1684320007917,
+      "output_tok_s": 627.2264486965686,
+      "image": "images/test.jpg",
+      "profiling_mode": "vllm_offline_single_process_same_model_kernels"
+    },
+    "kernel_rows": 128,
+    "cuda_api_rows": 41,
+    "category_time_pct": {
+      "BF16/Other GEMM": 52.2,
+      "Attention": 44.3,
+      "Fused/Triton": 1.6,
+      "Elementwise": 1.1,
+      "Other": 0.7
+    },
+    "top_kernels": [
+      {
+        "Time (%)": "39.5",
+        "Total Time (ns)": "3419118110",
+        "Instances": "54",
+        "Avg (ns)": "63317002.0",
+        "Med (ns)": "62867612.5",
+        "Min (ns)": "2059605",
+        "Max (ns)": "126024035",
+        "StdDev (ns)": "61692883.2",
+        "Name": "void flash::flash_fwd_kernel<Flash_fwd_kernel_traits<(int)96, (int)128, (int)64, (int)4, (bool)0, (bool)0, cutlass::bfloat16_t, Flash_kernel_traits<(int)96, (int)128, (int)64, (int)4, cutlass::bfloat16_t>>, (bool)0, (bool)0, (bool)0, (bool)0, (bool)0, (bool)0, (bool)0, (bool)0>(flash::Flash_fwd_params)"
+      },
+      {
+        "Time (%)": "32.1",
+        "Total Time (ns)": "2779319731",
+        "Instances": "38421",
+        "Avg (ns)": "72338.6",
+        "Med (ns)": "73076.0",
+        "Min (ns)": "22940",
+        "Max (ns)": "1275411",
+        "StdDev (ns)": "82855.1",
+        "Name": "void cutlass::Kernel2<cutlass_80_wmma_tensorop_bf16_s161616gemm_bf16_16x16_128x2_tn_align8>(T1::Params)"
+      },
+      {
+        "Time (%)": "6.1",
+        "Total Time (ns)": "526040980",
+        "Instances": "72",
+        "Avg (ns)": "7306124.7",
+        "Med (ns)": "7305817.5",
+        "Min (ns)": "6804634",
+        "Max (ns)": "7950849",
+        "StdDev (ns)": "351300.4",
+        "Name": "void cutlass::Kernel2<cutlass_80_tensorop_bf16_s16816gemm_relu_bf16_64x256_32x4_tn_align8>(T1::Params)"
+      },
+      {
+        "Time (%)": "4.5",
+        "Total Time (ns)": "386965122",
+        "Instances": "404",
+        "Avg (ns)": "957834.5",
+        "Med (ns)": "1026139.0",
+        "Min (ns)": "48665",
+        "Max (ns)": "2354342",
+        "StdDev (ns)": "742799.8",
+        "Name": "void cutlass::Kernel2<cutlass_80_tensorop_bf16_s16816gemm_relu_bf16_128x64_64x3_tn_align8>(T1::Params)"
+      },
+      {
+        "Time (%)": "4.0",
+        "Total Time (ns)": "345452916",
+        "Instances": "9972",
+        "Avg (ns)": "34642.3",
+        "Med (ns)": "34394.0",
+        "Min (ns)": "5599",
+        "Max (ns)": "590465",
+        "StdDev (ns)": "30771.1",
+        "Name": "void flash::flash_fwd_splitkv_kernel<Flash_fwd_kernel_traits<(int)128, (int)64, (int)128, (int)4, (bool)0, (bool)0, cutlass::bfloat16_t, Flash_kernel_traits<(int)128, (int)64, (int)128, (int)4, cutlass::bfloat16_t>>, (bool)0, (bool)0, (bool)0, (bool)0, (bool)1, (bool)0, (bool)1, (bool)0>(flash::Flash_fwd_params)"
+      },
+      {
+        "Time (%)": "3.4",
+        "Total Time (ns)": "296307199",
+        "Instances": "103",
+        "Avg (ns)": "2876768.9",
+        "Med (ns)": "3573217.0",
+        "Min (ns)": "312206",
+        "Max (ns)": "4410554",
+        "StdDev (ns)": "1551865.0",
+        "Name": "void cutlass::Kernel2<cutlass_80_tensorop_bf16_s16816gemm_relu_bf16_128x128_32x4_tn_align8>(T1::Params)"
+      },
+      {
+        "Time (%)": "1.7",
+        "Total Time (ns)": "147066076",
+        "Instances": "31",
+        "Avg (ns)": "4744067.0",
+        "Med (ns)": "4611545.0",
+        "Min (ns)": "3856562",
+        "Max (ns)": "5620822",
+        "StdDev (ns)": "362679.7",
+        "Name": "void cutlass::Kernel2<cutlass_80_tensorop_bf16_s16816gemm_relu_bf16_64x64_32x6_tn_align8>(T1::Params)"
+      },
+      {
+        "Time (%)": "1.7",
+        "Total Time (ns)": "146617339",
+        "Instances": "1944",
+        "Avg (ns)": "75420.4",
+        "Med (ns)": "63861.5",
+        "Min (ns)": "30875",
+        "Max (ns)": "584290",
+        "StdDev (ns)": "52995.0",
+        "Name": "std::enable_if<!T7, void>::type internal::gemvx::kernel<int, int, __nv_bfloat16, __nv_bfloat16, __nv_bfloat16, float, (bool)0, (bool)1, (bool)1, (bool)0, (int)7, (bool)0, cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<const __nv_bfloat16>, cublasGemvTensorStridedBatched<const __nv_bfloat16>, cublasGemvTensorStridedBatched<__nv_bfloat16>, float>>(T13)"
+      },
+      {
+        "Time (%)": "1.3",
+        "Total Time (ns)": "108250419",
+        "Instances": "110",
+        "Avg (ns)": "984094.7",
+        "Med (ns)": "813276.0",
+        "Min (ns)": "113357",
+        "Max (ns)": "3157443",
+        "StdDev (ns)": "936786.6",
+        "Name": "void cutlass::Kernel2<cutlass_80_tensorop_bf16_s16816gemm_relu_bf16_128x256_32x3_tn_align8>(T1::Params)"
+      },
+      {
+        "Time (%)": "1.0",
+        "Total Time (ns)": "85199541",
+        "Instances": "27",
+        "Avg (ns)": "3155538.6",
+        "Med (ns)": "3151652.0",
+        "Min (ns)": "2878640",
+        "Max (ns)": "3830902",
+        "StdDev (ns)": "264482.4",
+        "Name": "void cutlass::Kernel2<cutlass_80_tensorop_bf16_s16816gemm_relu_bf16_256x128_32x3_tn_align8>(T1::Params)"
+      }
+    ],
+    "top_cuda_apis": [
+      {
+        "Time (%)": "55.1",
+        "Total Time (ns)": "3212745220",
+        "Num Calls": "272",
+        "Avg (ns)": "11811563.3",
+        "Med (ns)": "11093072.0",
+        "Min (ns)": "2985",
+        "Max (ns)": "248836826",
+        "StdDev (ns)": "14463410.1",
+        "Name": "cudaEventSynchronize"
+      },
+      {
+        "Time (%)": "20.8",
+        "Total Time (ns)": "1216294539",
+        "Num Calls": "2824",
+        "Avg (ns)": "430699.2",
+        "Med (ns)": "6266.0",
+        "Min (ns)": "1022",
+        "Max (ns)": "88608062",
+        "StdDev (ns)": "2693050.7",
+        "Name": "cudaMemcpyAsync"
+      },
+      {
+        "Time (%)": "13.2",
+        "Total Time (ns)": "768378118",
+        "Num Calls": "7903",
+        "Avg (ns)": "97226.1",
+        "Med (ns)": "2785.0",
+        "Min (ns)": "711",
+        "Max (ns)": "540402176",
+        "StdDev (ns)": "6251073.6",
+        "Name": "cudaLaunchKernel"
+      },
+      {
+        "Time (%)": "2.6",
+        "Total Time (ns)": "151743275",
+        "Num Calls": "25",
+        "Avg (ns)": "6069731.0",
+        "Med (ns)": "348136.0",
+        "Min (ns)": "23490",
+        "Max (ns)": "141001838",
+        "StdDev (ns)": "28112453.9",
+        "Name": "cudaFree"
+      },
+      {
+        "Time (%)": "2.0",
+        "Total Time (ns)": "119128150",
+        "Num Calls": "5",
+        "Avg (ns)": "23825630.0",
+        "Med (ns)": "39438.0",
+        "Min (ns)": "25454",
+        "Max (ns)": "118970910",
+        "StdDev (ns)": "53187830.0",
+        "Name": "cudaMemGetInfo"
+      },
+      {
+        "Time (%)": "2.0",
+        "Total Time (ns)": "115625198",
+        "Num Calls": "35",
+        "Avg (ns)": "3303577.1",
+        "Med (ns)": "2091212.0",
+        "Min (ns)": "80819",
+        "Max (ns)": "21586757",
+        "StdDev (ns)": "3885307.8",
+        "Name": "cuLibraryLoadData"
+      },
+      {
+        "Time (%)": "0.8",
+        "Total Time (ns)": "47315155",
+        "Num Calls": "161",
+        "Avg (ns)": "293883.0",
+        "Med (ns)": "3296.0",
+        "Min (ns)": "1894",
+        "Max (ns)": "39293390",
+        "StdDev (ns)": "3129424.7",
+        "Name": "cudaHostAlloc"
+      },
+      {
+        "Time (%)": "0.7",
+        "Total Time (ns)": "41268680",
+        "Num Calls": "193",
+        "Avg (ns)": "213827.4",
+        "Med (ns)": "5018.0",
+        "Min (ns)": "3646",
+        "Max (ns)": "9377279",
+        "StdDev (ns)": "977147.7",
+        "Name": "cudaDeviceSynchronize"
+      },
+      {
+        "Time (%)": "0.4",
+        "Total Time (ns)": "26047491",
+        "Num Calls": "310",
+        "Avg (ns)": "84024.2",
+        "Med (ns)": "85416.0",
+        "Min (ns)": "11730",
+        "Max (ns)": "401287",
+        "StdDev (ns)": "41131.8",
+        "Name": "cudaGraphLaunch"
+      },
+      {
+        "Time (%)": "0.4",
+        "Total Time (ns)": "24452194",
+        "Num Calls": "1296",
+        "Avg (ns)": "18867.4",
+        "Med (ns)": "5865.0",
+        "Min (ns)": "1052",
+        "Max (ns)": "355779",
+        "StdDev (ns)": "27394.6",
+        "Name": "cudaStreamSynchronize"
+      }
+    ]
+  },
+  {
+    "profile": "bf16_steady_offline",
+    "workload": {
+      "variant": "bf16",
+      "scenario": "steady",
+      "output_tokens": 256,
+      "e2e_ms": 2838.167446985608,
+      "output_tok_s": 90.19904737188614,
+      "image": "images/test.jpg",
+      "profiling_mode": "vllm_offline_single_process_same_model_kernels"
+    },
+    "kernel_rows": 129,
+    "cuda_api_rows": 41,
+    "category_time_pct": {
+      "BF16/Other GEMM": 45.9,
+      "Attention": 38.0,
+      "Fused/Triton": 7.9,
+      "Elementwise": 7.4,
+      "Other": 0.5
+    },
+    "top_kernels": [
+      {
+        "Time (%)": "35.9",
+        "Total Time (ns)": "3425132062",
+        "Instances": "54",
+        "Avg (ns)": "63428371.5",
+        "Med (ns)": "63107819.0",
+        "Min (ns)": "2062036",
+        "Max (ns)": "125756144",
+        "StdDev (ns)": "61800928.1",
+        "Name": "void flash::flash_fwd_kernel<Flash_fwd_kernel_traits<(int)96, (int)128, (int)64, (int)4, (bool)0, (bool)0, cutlass::bfloat16_t, Flash_kernel_traits<(int)96, (int)128, (int)64, (int)4, cutlass::bfloat16_t>>, (bool)0, (bool)0, (bool)0, (bool)0, (bool)0, (bool)0, (bool)0, (bool)0>(flash::Flash_fwd_params)"
+      },
+      {
+        "Time (%)": "23.5",
+        "Total Time (ns)": "2245807502",
+        "Instances": "29484",
+        "Avg (ns)": "76170.4",
+        "Med (ns)": "63904.0",
+        "Min (ns)": "30784",
+        "Max (ns)": "730727",
+        "StdDev (ns)": "59116.8",
+        "Name": "std::enable_if<!T7, void>::type internal::gemvx::kernel<int, int, __nv_bfloat16, __nv_bfloat16, __nv_bfloat16, float, (bool)0, (bool)1, (bool)1, (bool)0, (int)7, (bool)0, cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<const __nv_bfloat16>, cublasGemvTensorStridedBatched<const __nv_bfloat16>, cublasGemvTensorStridedBatched<__nv_bfloat16>, float>>(T13)"
+      },
+      {
+        "Time (%)": "6.8",
+        "Total Time (ns)": "647556705",
+        "Instances": "11705",
+        "Avg (ns)": "55323.1",
+        "Med (ns)": "56865.0",
+        "Min (ns)": "416",
+        "Max (ns)": "620710",
+        "StdDev (ns)": "37061.0",
+        "Name": "void at::native::vectorized_elementwise_kernel<(int)4, at::native::FillFunctor<int>, std::array<char *, (unsigned long)1>>(int, T2, T3)"
+      },
+      {
+        "Time (%)": "5.5",
+        "Total Time (ns)": "527446851",
+        "Instances": "72",
+        "Avg (ns)": "7325650.7",
+        "Med (ns)": "7335416.0",
+        "Min (ns)": "6810819",
+        "Max (ns)": "8082416",
+        "StdDev (ns)": "367620.5",
+        "Name": "void cutlass::Kernel2<cutlass_80_tensorop_bf16_s16816gemm_relu_bf16_64x256_32x4_tn_align8>(T1::Params)"
+      },
+      {
+        "Time (%)": "5.0",
+        "Total Time (ns)": "473145309",
+        "Instances": "10101",
+        "Avg (ns)": "46841.4",
+        "Med (ns)": "23265.0",
+        "Min (ns)": "22400",
+        "Max (ns)": "1325965",
+        "StdDev (ns)": "134233.6",
+        "Name": "std::enable_if<!T7, void>::type internal::gemvx::kernel<int, int, __nv_bfloat16, __nv_bfloat16, __nv_bfloat16, float, (bool)0, (bool)1, (bool)1, (bool)0, (int)6, (bool)0, cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<const __nv_bfloat16>, cublasGemvTensorStridedBatched<const __nv_bfloat16>, cublasGemvTensorStridedBatched<__nv_bfloat16>, float>>(T13)"
+      },
+      {
+        "Time (%)": "3.9",
+        "Total Time (ns)": "375077362",
+        "Instances": "296",
+        "Avg (ns)": "1267153.3",
+        "Med (ns)": "1201339.5",
+        "Min (ns)": "342084",
+        "Max (ns)": "2419319",
+        "StdDev (ns)": "596543.0",
+        "Name": "void cutlass::Kernel2<cutlass_80_tensorop_bf16_s16816gemm_relu_bf16_128x64_64x3_tn_align8>(T1::Params)"
+      },
+      {
+        "Time (%)": "3.1",
+        "Total Time (ns)": "296761983",
+        "Instances": "103",
+        "Avg (ns)": "2881184.3",
+        "Med (ns)": "3562307.0",
+        "Min (ns)": "311491",
+        "Max (ns)": "4365035",
+        "StdDev (ns)": "1544556.2",
+        "Name": "void cutlass::Kernel2<cutlass_80_tensorop_bf16_s16816gemm_relu_bf16_128x128_32x4_tn_align8>(T1::Params)"
+      },
+      {
+        "Time (%)": "2.6",
+        "Total Time (ns)": "252040338",
+        "Instances": "2867",
+        "Avg (ns)": "87910.8",
+        "Med (ns)": "89473.0",
+        "Min (ns)": "1568",
+        "Max (ns)": "952970",
+        "StdDev (ns)": "81875.1",
+        "Name": "triton_"
+      },
+      {
+        "Time (%)": "1.6",
+        "Total Time (ns)": "148344324",
+        "Instances": "31",
+        "Avg (ns)": "4785300.8",
+        "Med (ns)": "4807022.0",
+        "Min (ns)": "3779716",
+        "Max (ns)": "5631832",
+        "StdDev (ns)": "370191.3",
+        "Name": "void cutlass::Kernel2<cutlass_80_tensorop_bf16_s16816gemm_relu_bf16_64x64_32x6_tn_align8>(T1::Params)"
+      },
+      {
+        "Time (%)": "1.2",
+        "Total Time (ns)": "118202493",
+        "Instances": "10684",
+        "Avg (ns)": "11063.5",
+        "Med (ns)": "1024.0",
+        "Min (ns)": "768",
+        "Max (ns)": "861736",
+        "StdDev (ns)": "43693.3",
+        "Name": "triton_red_fused_4"
+      }
+    ],
+    "top_cuda_apis": [
+      {
+        "Time (%)": "43.3",
+        "Total Time (ns)": "2852757251",
+        "Num Calls": "272",
+        "Avg (ns)": "10488078.1",
+        "Med (ns)": "9630395.0",
+        "Min (ns)": "7746854",
+        "Max (ns)": "245471365",
+        "StdDev (ns)": "14305183.6",
+        "Name": "cudaEventSynchronize"
+      },
+      {
+        "Time (%)": "18.5",
+        "Total Time (ns)": "1217243628",
+        "Num Calls": "409",
+        "Avg (ns)": "2976145.8",
+        "Med (ns)": "6863.0",
+        "Min (ns)": "1282",
+        "Max (ns)": "35258696",
+        "StdDev (ns)": "7553199.3",
+        "Name": "cudaDeviceSynchronize"
+      },
+      {
+        "Time (%)": "18.4",
+        "Total Time (ns)": "1212524963",
+        "Num Calls": "3033",
+        "Avg (ns)": "399777.4",
+        "Med (ns)": "5931.0",
+        "Min (ns)": "1062",
+        "Max (ns)": "85770818",
+        "StdDev (ns)": "2547836.4",
+        "Name": "cudaMemcpyAsync"
+      },
+      {
+        "Time (%)": "12.1",
+        "Total Time (ns)": "795967670",
+        "Num Calls": "19313",
+        "Avg (ns)": "41214.1",
+        "Med (ns)": "2144.0",
+        "Min (ns)": "691",
+        "Max (ns)": "536199587",
+        "StdDev (ns)": "3971182.1",
+        "Name": "cudaLaunchKernel"
+      },
+      {
+        "Time (%)": "1.9",
+        "Total Time (ns)": "124361588",
+        "Num Calls": "5",
+        "Avg (ns)": "24872317.6",
+        "Med (ns)": "39865.0",
+        "Min (ns)": "23805",
+        "Max (ns)": "124204382",
+        "StdDev (ns)": "55528314.8",
+        "Name": "cudaMemGetInfo"
+      },
+      {
+        "Time (%)": "1.8",
+        "Total Time (ns)": "115594981",
+        "Num Calls": "35",
+        "Avg (ns)": "3302713.7",
+        "Med (ns)": "2125692.0",
+        "Min (ns)": "79199",
+        "Max (ns)": "20944179",
+        "StdDev (ns)": "3879659.5",
+        "Name": "cuLibraryLoadData"
+      },
+      {
+        "Time (%)": "0.7",
+        "Total Time (ns)": "48883425",
+        "Num Calls": "155",
+        "Avg (ns)": "315376.9",
+        "Med (ns)": "3156.0",
+        "Min (ns)": "2074",
+        "Max (ns)": "40148091",
+        "StdDev (ns)": "3265124.8",
+        "Name": "cudaHostAlloc"
+      },
+      {
+        "Time (%)": "0.4",
+        "Total Time (ns)": "26230222",
+        "Num Calls": "347",
+        "Avg (ns)": "75591.4",
+        "Med (ns)": "83447.0",
+        "Min (ns)": "8296",
+        "Max (ns)": "386949",
+        "StdDev (ns)": "44759.3",
+        "Name": "cudaGraphLaunch"
+      },
+      {
+        "Time (%)": "0.4",
+        "Total Time (ns)": "24193360",
+        "Num Calls": "189",
+        "Avg (ns)": "128007.2",
+        "Med (ns)": "63890.0",
+        "Min (ns)": "48772",
+        "Max (ns)": "2189692",
+        "StdDev (ns)": "261105.1",
+        "Name": "cudaGraphInstantiateWithFlags"
+      },
+      {
+        "Time (%)": "0.4",
+        "Total Time (ns)": "23827483",
+        "Num Calls": "1296",
+        "Avg (ns)": "18385.4",
+        "Med (ns)": "5680.5",
+        "Min (ns)": "712",
+        "Max (ns)": "338437",
+        "StdDev (ns)": "25563.5",
+        "Name": "cudaStreamSynchronize"
+      }
+    ]
+  },
+  {
+    "profile": "fp8_steady_c8_offline",
+    "workload": {
+      "variant": "fp8",
+      "scenario": "steady",
+      "concurrency": 8,
+      "output_tokens": 2048,
+      "e2e_ms": 2142.166897014249,
+      "output_tok_s": 956.0412883116162,
+      "image": "images/test.jpg",
+      "profiling_mode": "vllm_offline_single_process_same_model_kernels"
+    },
+    "kernel_rows": 134,
+    "cuda_api_rows": 42,
+    "category_time_pct": {
+      "Attention": 54.0,
+      "FP8 GEMM/Quant": 36.8,
+      "BF16/Other GEMM": 3.1,
+      "Elementwise": 3.0,
+      "Fused/Triton": 1.7,
+      "Other": 1.0
+    },
+    "top_kernels": [
+      {
+        "Time (%)": "48.2",
+        "Total Time (ns)": "3424426629",
+        "Instances": "54",
+        "Avg (ns)": "63415307.9",
+        "Med (ns)": "63001076.5",
+        "Min (ns)": "2060105",
+        "Max (ns)": "126534326",
+        "StdDev (ns)": "61753317.9",
+        "Name": "void flash::flash_fwd_kernel<Flash_fwd_kernel_traits<(int)96, (int)128, (int)64, (int)4, (bool)0, (bool)0, cutlass::bfloat16_t, Flash_kernel_traits<(int)96, (int)128, (int)64, (int)4, cutlass::bfloat16_t>>, (bool)0, (bool)0, (bool)0, (bool)0, (bool)0, (bool)0, (bool)0, (bool)0>(flash::Flash_fwd_params)"
+      },
+      {
+        "Time (%)": "20.0",
+        "Total Time (ns)": "1420294132",
+        "Instances": "40752",
+        "Avg (ns)": "34852.1",
+        "Med (ns)": "34524.0",
+        "Min (ns)": "12670",
+        "Max (ns)": "580890",
+        "StdDev (ns)": "35807.6",
+        "Name": "void cutlass::device_kernel<enable_sm120_family<cutlass::gemm::kernel::GemmUniversal<cute::tuple<int, int, int, int>, cutlass::gemm::collective::CollectiveMma<cutlass::gemm::MainloopSm120TmaWarpSpecialized<(int)9, (int)2, cute::tuple<cute::C<(int)1>, cute::C<(int)1>, cute::C<(int)1>>, cutlass::gemm::KernelTmaWarpSpecializedPingpongSm120<(int)2>>, cute::tuple<cute::C<(int)16>, cute::C<(int)64>, cute::C<(int)128>>, cutlass::float_e4m3_t, cute::tuple<long, cute::C<(int)1>, long>, cutlass::float_e4m3_t, cute::tuple<long, cute::C<(int)1>, long>, cute::TiledMMA<cute::MMA_Atom<cute::SM120_16x8x32_TN<cutlass::float_e4m3_t, cutlass::float_e4m3_t, float>>, cute::Layout<cute::tuple<cute::C<(int)2>, cute::C<(int)2>, cute::C<(int)1>>, cute::tuple<cute::C<(int)1>, cute::C<(int)2>, cute::C<(int)0>>>, cute::tuple<cute::C<(int)16>, cute::C<(int)32>, cute::C<(int)32>>>, cute::SM90_TMA_LOAD, cute::ComposedLayout<cute::Swizzle<(int)3, (int)4, (int)3>, cute::smem_ptr_flag_bits<(int)8>, cute::Layout<cute::tuple<cute::C<(int)8>, cute::C<(int)128>>, cute::tuple<cute::C<(int)128>, cute::C<(int)1>>>>, cute::Copy_Atom<cute::SM75_U32x4_LDSM_N, unsigned char>, cute::identity, cute::SM90_TMA_LOAD, cute::ComposedLayout<cute::Swizzle<(int)3, (int)4, (int)3>, cute::smem_ptr_flag_bits<(int)8>, cute::Layout<cute::tuple<cute::C<(int)8>, cute::C<(int)128>>, cute::tuple<cute::C<(int)128>, cute::C<(int)1>>>>, cute::Copy_Atom<cute::SM75_U32x4_LDSM_N, unsigned char>, cute::identity>, cutlass::epilogue::collective::CollectiveEpilogue<cutlass::epilogue::Sm90TmaWarpSpecialized<(int)2, (int)2, (int)4, (bool)0, (bool)1>, cute::tuple<cute::C<(int)16>, cute::C<(int)64>, cute::C<(int)128>>, cute::tuple<cute::C<(int)16>, cute::C<(int)32>>, void, cute::tuple<long, cute::C<(int)1>, long>, cutlass::bfloat16_t, cute::tuple<long, cute::C<(int)1>, long>, cutlass::epilogue::fusion::Sm90TreeVisitor<cutlass::epilogue::fusion::Sm90Compute<cutlass::multiplies, cutlass::bfloat16_t, float, (cutlass::FloatRoundStyle)2, void>, cutlass::epilogue::fusion::Sm90ColOrScalarBroadcast<(int)0, cute::tuple<cute::C<(int)16>, cute::C<(int)64>, cute::C<(int)128>>, float, cute::tuple<cute::C<(int)1>, cute::C<(int)0>, cute::C<(int)0>>, (int)4>, cutlass::epilogue::fusion::Sm90TreeVisitor<cutlass::epilogue::fusion::Sm90Compute<cutlass::multiplies, float, float, (cutlass::FloatRoundStyle)2, void>, cutlass::epilogue::fusion::Sm90RowOrScalarBroadcast<(int)0, cute::tuple<cute::C<(int)16>, cute::C<(int)64>, cute::C<(int)128>>, float, cute::tuple<cute::C<(int)0>, cute::C<(int)1>, cute::C<(int)0>>, (int)4>, cutlass::epilogue::fusion::Sm90AccFetch>>, cute::SM90_TMA_LOAD, cute::ComposedLayout<cute::Swizzle<(int)2, (int)4, (int)3>, cute::smem_ptr_flag_bits<(int)16>, cute::Layout<cute::tuple<cute::C<(int)8>, cute::C<(int)32>>, cute::tuple<cute::C<(int)32>, cute::C<(int)1>>>>, cute::SM75_U32x2_LDSM_N, cute::SM90_TMA_STORE, cute::ComposedLayout<cute::Swizzle<(int)2, (int)4, (int)3>, cute::smem_ptr_flag_bits<(int)16>, cute::Layout<cute::tuple<cute::C<(int)8>, cute::C<(int)32>>, cute::tuple<cute::C<(int)32>, cute::C<(int)1>>>>, cute::SM90_U32x2_STSM_N, cute::Copy_Atom<cute::SM90_U32x2_STSM_N, cutlass::half_t>, void>, void, void>>>(T1::Params)"
+      },
+      {
+        "Time (%)": "8.5",
+        "Total Time (ns)": "601648776",
+        "Instances": "432",
+        "Avg (ns)": "1392705.5",
+        "Med (ns)": "901779.5",
+        "Min (ns)": "193352",
+        "Max (ns)": "4147087",
+        "StdDev (ns)": "1173749.6",
+        "Name": "void cutlass::device_kernel<enable_sm120_family<cutlass::gemm::kernel::GemmUniversal<cute::tuple<int, int, int, int>, cutlass::gemm::collective::CollectiveMma<cutlass::gemm::MainloopSm120TmaWarpSpecialized<(int)2, (int)2, cute::tuple<cute::C<(int)1>, cute::C<(int)1>, cute::C<(int)1>>, cutlass::gemm::KernelTmaWarpSpecializedCooperativeSm120<(int)2>>, cute::tuple<cute::C<(int)128>, cute::C<(int)128>, cute::C<(int)128>>, cutlass::float_e4m3_t, cute::tuple<long, cute::C<(int)1>, long>, cutlass::float_e4m3_t, cute::tuple<long, cute::C<(int)1>, long>, cute::TiledMMA<cute::MMA_Atom<cute::SM120_16x8x32_TN<cutlass::float_e4m3_t, cutlass::float_e4m3_t, float>>, cute::Layout<cute::tuple<cute::C<(int)4>, cute::C<(int)2>, cute::C<(int)1>>, cute::tuple<cute::C<(int)1>, cute::C<(int)4>, cute::C<(int)0>>>, cute::tuple<cute::C<(int)128>, cute::C<(int)32>, cute::C<(int)32>>>, cute::SM90_TMA_LOAD, cute::ComposedLayout<cute::Swizzle<(int)3, (int)4, (int)3>, cute::smem_ptr_flag_bits<(int)8>, cute::Layout<cute::tuple<cute::C<(int)8>, cute::C<(int)128>>, cute::tuple<cute::C<(int)128>, cute::C<(int)1>>>>, cute::Copy_Atom<cute::SM75_U32x4_LDSM_N, unsigned char>, cute::identity, cute::SM90_TMA_LOAD, cute::ComposedLayout<cute::Swizzle<(int)3, (int)4, (int)3>, cute::smem_ptr_flag_bits<(int)8>, cute::Layout<cute::tuple<cute::C<(int)8>, cute::C<(int)128>>, cute::tuple<cute::C<(int)128>, cute::C<(int)1>>>>, cute::Copy_Atom<cute::SM75_U32x4_LDSM_N, unsigned char>, cute::identity>, cutlass::epilogue::collective::CollectiveEpilogue<cutlass::epilogue::Sm90TmaWarpSpecialized<(int)2, (int)2, (int)4, (bool)0, (bool)1>, cute::tuple<cute::C<(int)128>, cute::C<(int)128>, cute::C<(int)128>>, cute::tuple<cute::C<(int)64>, cute::C<(int)32>>, void, cute::tuple<long, cute::C<(int)1>, long>, cutlass::bfloat16_t, cute::tuple<long, cute::C<(int)1>, long>, cutlass::epilogue::fusion::Sm90TreeVisitor<cutlass::epilogue::fusion::Sm90Compute<cutlass::multiplies, cutlass::bfloat16_t, float, (cutlass::FloatRoundStyle)2, void>, cutlass::epilogue::fusion::Sm90ColOrScalarBroadcast<(int)0, cute::tuple<cute::C<(int)128>, cute::C<(int)128>, cute::C<(int)128>>, float, cute::tuple<cute::C<(int)1>, cute::C<(int)0>, cute::C<(int)0>>, (int)4>, cutlass::epilogue::fusion::Sm90TreeVisitor<cutlass::epilogue::fusion::Sm90Compute<cutlass::multiplies, float, float, (cutlass::FloatRoundStyle)2, void>, cutlass::epilogue::fusion::Sm90RowOrScalarBroadcast<(int)0, cute::tuple<cute::C<(int)128>, cute::C<(int)128>, cute::C<(int)128>>, float, cute::tuple<cute::C<(int)0>, cute::C<(int)1>, cute::C<(int)0>>, (int)4>, cutlass::epilogue::fusion::Sm90AccFetch>>, cute::SM90_TMA_LOAD, cute::ComposedLayout<cute::Swizzle<(int)2, (int)4, (int)3>, cute::smem_ptr_flag_bits<(int)16>, cute::Layout<cute::tuple<cute::C<(int)8>, cute::C<(int)32>>, cute::tuple<cute::C<(int)32>, cute::C<(int)1>>>>, cute::SM75_U32x2_LDSM_N, cute::SM90_TMA_STORE, cute::ComposedLayout<cute::Swizzle<(int)2, (int)4, (int)3>, cute::smem_ptr_flag_bits<(int)16>, cute::Layout<cute::tuple<cute::C<(int)8>, cute::C<(int)32>>, cute::tuple<cute::C<(int)32>, cute::C<(int)1>>>>, cute::SM90_U32x2_STSM_N, cute::Copy_Atom<cute::SM90_U32x2_STSM_N, cutlass::half_t>, void>, void, void>>>(T1::Params)"
+      },
+      {
+        "Time (%)": "4.8",
+        "Total Time (ns)": "339753558",
+        "Instances": "9972",
+        "Avg (ns)": "34070.8",
+        "Med (ns)": "34492.0",
+        "Min (ns)": "5759",
+        "Max (ns)": "504228",
+        "StdDev (ns)": "24987.4",
+        "Name": "void flash::flash_fwd_splitkv_kernel<Flash_fwd_kernel_traits<(int)128, (int)64, (int)128, (int)4, (bool)0, (bool)0, cutlass::bfloat16_t, Flash_kernel_traits<(int)128, (int)64, (int)128, (int)4, cutlass::bfloat16_t>>, (bool)0, (bool)0, (bool)0, (bool)0, (bool)1, (bool)0, (bool)1, (bool)0>(flash::Flash_fwd_params)"
+      },
+      {
+        "Time (%)": "2.9",
+        "Total Time (ns)": "208624835",
+        "Instances": "261",
+        "Avg (ns)": "799328.9",
+        "Med (ns)": "742119.0",
+        "Min (ns)": "739975",
+        "Max (ns)": "1349151",
+        "StdDev (ns)": "134264.0",
+        "Name": "void cutlass::Kernel2<cutlass_80_wmma_tensorop_bf16_s161616gemm_bf16_16x16_128x2_tn_align8>(T1::Params)"
+      },
+      {
+        "Time (%)": "2.5",
+        "Total Time (ns)": "174928837",
+        "Instances": "10373",
+        "Avg (ns)": "16863.9",
+        "Med (ns)": "3327.0",
+        "Min (ns)": "3135",
+        "Max (ns)": "840187",
+        "StdDev (ns)": "68606.1",
+        "Name": "triton_red_fused__to_copy_abs_clamp_cutlass_scaled_mm_div_max_mul_reciprocal_silu_slice_unsqueeze_3"
+      },
+      {
+        "Time (%)": "2.4",
+        "Total Time (ns)": "168279779",
+        "Instances": "232",
+        "Avg (ns)": "725343.9",
+        "Med (ns)": "434491.5",
+        "Min (ns)": "61209",
+        "Max (ns)": "2040075",
+        "StdDev (ns)": "652706.4",
+        "Name": "void cutlass::device_kernel<enable_sm120_family<cutlass::gemm::kernel::GemmUniversal<cute::tuple<int, int, int, int>, cutlass::gemm::collective::CollectiveMma<cutlass::gemm::MainloopSm120TmaWarpSpecialized<(int)2, (int)2, cute::tuple<cute::C<(int)1>, cute::C<(int)1>, cute::C<(int)1>>, cutlass::gemm::KernelTmaWarpSpecializedCooperativeSm120<(int)2>>, cute::tuple<cute::C<(int)128>, cute::C<(int)128>, cute::C<(int)128>>, cutlass::float_e4m3_t, cute::tuple<long, cute::C<(int)1>, long>, cutlass::float_e4m3_t, cute::tuple<long, cute::C<(int)1>, long>, cute::TiledMMA<cute::MMA_Atom<cute::SM120_16x8x32_TN<cutlass::float_e4m3_t, cutlass::float_e4m3_t, float>>, cute::Layout<cute::tuple<cute::C<(int)4>, cute::C<(int)2>, cute::C<(int)1>>, cute::tuple<cute::C<(int)1>, cute::C<(int)4>, cute::C<(int)0>>>, cute::tuple<cute::C<(int)128>, cute::C<(int)32>, cute::C<(int)32>>>, cute::SM90_TMA_LOAD, cute::ComposedLayout<cute::Swizzle<(int)3, (int)4, (int)3>, cute::smem_ptr_flag_bits<(int)8>, cute::Layout<cute::tuple<cute::C<(int)8>, cute::C<(int)128>>, cute::tuple<cute::C<(int)128>, cute::C<(int)1>>>>, cute::Copy_Atom<cute::SM75_U32x4_LDSM_N, unsigned char>, cute::identity, cute::SM90_TMA_LOAD, cute::ComposedLayout<cute::Swizzle<(int)3, (int)4, (int)3>, cute::smem_ptr_flag_bits<(int)8>, cute::Layout<cute::tuple<cute::C<(int)8>, cute::C<(int)128>>, cute::tuple<cute::C<(int)128>, cute::C<(int)1>>>>, cute::Copy_Atom<cute::SM75_U32x4_LDSM_N, unsigned char>, cute::identity>, cutlass::epilogue::collective::CollectiveEpilogue<cutlass::epilogue::Sm90TmaWarpSpecialized<(int)2, (int)2, (int)4, (bool)0, (bool)1>, cute::tuple<cute::C<(int)128>, cute::C<(int)128>, cute::C<(int)128>>, cute::tuple<cute::C<(int)64>, cute::C<(int)32>>, void, cute::tuple<long, cute::C<(int)1>, long>, cutlass::bfloat16_t, cute::tuple<long, cute::C<(int)1>, long>, cutlass::epilogue::fusion::Sm90TreeVisitor<cutlass::epilogue::fusion::Sm90Compute<cutlass::homogeneous_multiply_add, cutlass::bfloat16_t, float, (cutlass::FloatRoundStyle)2, void>, cutlass::epilogue::fusion::Sm90ColOrScalarBroadcast<(int)0, cute::tuple<cute::C<(int)128>, cute::C<(int)128>, cute::C<(int)128>>, float, cute::tuple<cute::C<(int)1>, cute::C<(int)0>, cute::C<(int)0>>, (int)4>, cutlass::epilogue::fusion::Sm90TreeVisitor<cutlass::epilogue::fusion::Sm90Compute<cutlass::multiplies, float, float, (cutlass::FloatRoundStyle)2, void>, cutlass::epilogue::fusion::Sm90RowOrScalarBroadcast<(int)0, cute::tuple<cute::C<(int)128>, cute::C<(int)128>, cute::C<(int)128>>, float, cute::tuple<cute::C<(int)0>, cute::C<(int)1>, cute::C<(int)0>>, (int)4>, cutlass::epilogue::fusion::Sm90AccFetch>, cutlass::epilogue::fusion::Sm90RowBroadcast<(int)0, cute::tuple<cute::C<(int)128>, cute::C<(int)128>, cute::C<(int)128>>, cutlass::bfloat16_t, cutlass::bfloat16_t, cute::tuple<cute::C<(int)0>, cute::C<(int)1>, cute::C<(int)0>>, (int)8, (bool)0>>, cute::SM90_TMA_LOAD, cute::ComposedLayout<cute::Swizzle<(int)2, (int)4, (int)3>, cute::smem_ptr_flag_bits<(int)16>, cute::Layout<cute::tuple<cute::C<(int)8>, cute::C<(int)32>>, cute::tuple<cute::C<(int)32>, cute::C<(int)1>>>>, cute::SM75_U32x2_LDSM_N, cute::SM90_TMA_STORE, cute::ComposedLayout<cute::Swizzle<(int)2, (int)4, (int)3>, cute::smem_ptr_flag_bits<(int)16>, cute::Layout<cute::tuple<cute::C<(int)8>, cute::C<(int)32>>, cute::tuple<cute::C<(int)32>, cute::C<(int)1>>>>, cute::SM90_U32x2_STSM_N, cute::Copy_Atom<cute::SM90_U32x2_STSM_N, cutlass::half_t>, void>, void, void>>>(T1::Params)"
+      },
+      {
+        "Time (%)": "1.8",
+        "Total Time (ns)": "129853431",
+        "Instances": "2980",
+        "Avg (ns)": "43575.0",
+        "Med (ns)": "50074.0",
+        "Min (ns)": "384",
+        "Max (ns)": "524098",
+        "StdDev (ns)": "34948.6",
+        "Name": "void at::native::vectorized_elementwise_kernel<(int)4, at::native::FillFunctor<int>, std::array<char *, (unsigned long)1>>(int, T2, T3)"
+      },
+      {
+        "Time (%)": "1.8",
+        "Total Time (ns)": "126393330",
+        "Instances": "9396",
+        "Avg (ns)": "13451.8",
+        "Med (ns)": "5535.0",
+        "Min (ns)": "4575",
+        "Max (ns)": "752998",
+        "StdDev (ns)": "46494.9",
+        "Name": "triton_red_fused__to_copy_abs_clamp_cutlass_scaled_mm_div_fused_add_rms_norm_max_mul_reciprocal_unsqueeze_4"
+      },
+      {
+        "Time (%)": "1.1",
+        "Total Time (ns)": "77751469",
+        "Instances": "656",
+        "Avg (ns)": "118523.6",
+        "Med (ns)": "142143.0",
+        "Min (ns)": "10719",
+        "Max (ns)": "1054497",
+        "StdDev (ns)": "134963.1",
+        "Name": "triton_red_fused__to_copy_abs_clamp_max_mul_reciprocal_unsqueeze_0"
+      }
+    ],
+    "top_cuda_apis": [
+      {
+        "Time (%)": "43.1",
+        "Total Time (ns)": "1974607044",
+        "Num Calls": "272",
+        "Avg (ns)": "7259584.7",
+        "Med (ns)": "6731036.0",
+        "Min (ns)": "4723231",
+        "Max (ns)": "159290750",
+        "StdDev (ns)": "9260757.2",
+        "Name": "cudaEventSynchronize"
+      },
+      {
+        "Time (%)": "26.7",
+        "Total Time (ns)": "1224300990",
+        "Num Calls": "3306",
+        "Avg (ns)": "370327.0",
+        "Med (ns)": "4693.5",
+        "Min (ns)": "901",
+        "Max (ns)": "85821894",
+        "StdDev (ns)": "2456288.6",
+        "Name": "cudaMemcpyAsync"
+      },
+      {
+        "Time (%)": "14.2",
+        "Total Time (ns)": "648954561",
+        "Num Calls": "242",
+        "Avg (ns)": "2681630.4",
+        "Med (ns)": "5239.5",
+        "Min (ns)": "2875",
+        "Max (ns)": "252423421",
+        "StdDev (ns)": "17441518.3",
+        "Name": "cudaDeviceSynchronize"
+      },
+      {
+        "Time (%)": "5.3",
+        "Total Time (ns)": "244238922",
+        "Num Calls": "14802",
+        "Avg (ns)": "16500.4",
+        "Med (ns)": "2615.0",
+        "Min (ns)": "791",
+        "Max (ns)": "124798268",
+        "StdDev (ns)": "1041473.3",
+        "Name": "cudaLaunchKernel"
+      },
+      {
+        "Time (%)": "2.7",
+        "Total Time (ns)": "122704458",
+        "Num Calls": "38",
+        "Avg (ns)": "3229064.7",
+        "Med (ns)": "1986628.0",
+        "Min (ns)": "80431",
+        "Max (ns)": "22909084",
+        "StdDev (ns)": "4068813.7",
+        "Name": "cuLibraryLoadData"
+      },
+      {
+        "Time (%)": "2.6",
+        "Total Time (ns)": "117455846",
+        "Num Calls": "5",
+        "Avg (ns)": "23491169.2",
+        "Med (ns)": "26627.0",
+        "Min (ns)": "24333",
+        "Max (ns)": "117318685",
+        "StdDev (ns)": "52451178.1",
+        "Name": "cudaMemGetInfo"
+      },
+      {
+        "Time (%)": "1.1",
+        "Total Time (ns)": "48387029",
+        "Num Calls": "162",
+        "Avg (ns)": "298685.4",
+        "Med (ns)": "2995.0",
+        "Min (ns)": "1693",
+        "Max (ns)": "39524164",
+        "StdDev (ns)": "3148128.3",
+        "Name": "cudaHostAlloc"
+      },
+      {
+        "Time (%)": "0.7",
+        "Total Time (ns)": "33849282",
+        "Num Calls": "1844",
+        "Avg (ns)": "18356.4",
+        "Med (ns)": "5003.5",
+        "Min (ns)": "942",
+        "Max (ns)": "365491",
+        "StdDev (ns)": "36413.9",
+        "Name": "cudaStreamSynchronize"
+      },
+      {
+        "Time (%)": "0.7",
+        "Total Time (ns)": "30238360",
+        "Num Calls": "270",
+        "Avg (ns)": "111993.9",
+        "Med (ns)": "88340.0",
+        "Min (ns)": "8965",
+        "Max (ns)": "1551099",
+        "StdDev (ns)": "120348.4",
+        "Name": "cudaMalloc"
+      },
+      {
+        "Time (%)": "0.6",
+        "Total Time (ns)": "26791373",
+        "Num Calls": "310",
+        "Avg (ns)": "86423.8",
+        "Med (ns)": "89602.5",
+        "Min (ns)": "12792",
+        "Max (ns)": "429153",
+        "StdDev (ns)": "43103.5",
+        "Name": "cudaGraphLaunch"
+      }
+    ]
+  },
+  {
+    "profile": "fp8_steady_offline",
+    "workload": {
+      "variant": "fp8",
+      "scenario": "steady",
+      "output_tokens": 256,
+      "e2e_ms": 1857.941889000358,
+      "output_tok_s": 137.7868713309099,
+      "image": "images/test.jpg",
+      "profiling_mode": "vllm_offline_single_process_same_model_kernels"
+    },
+    "kernel_rows": 138,
+    "cuda_api_rows": 41,
+    "category_time_pct": {
+      "Attention": 44.8,
+      "FP8 GEMM/Quant": 32.7,
+      "Elementwise": 10.6,
+      "Fused/Triton": 7.9,
+      "BF16/Other GEMM": 2.8,
+      "Other": 0.8
+    },
+    "top_kernels": [
+      {
+        "Time (%)": "42.3",
+        "Total Time (ns)": "3427525109",
+        "Instances": "54",
+        "Avg (ns)": "63472687.2",
+        "Med (ns)": "63161097.0",
+        "Min (ns)": "2059275",
+        "Max (ns)": "125607197",
+        "StdDev (ns)": "61815310.3",
+        "Name": "void flash::flash_fwd_kernel<Flash_fwd_kernel_traits<(int)96, (int)128, (int)64, (int)4, (bool)0, (bool)0, cutlass::bfloat16_t, Flash_kernel_traits<(int)96, (int)128, (int)64, (int)4, cutlass::bfloat16_t>>, (bool)0, (bool)0, (bool)0, (bool)0, (bool)0, (bool)0, (bool)0, (bool)0>(flash::Flash_fwd_params)"
+      },
+      {
+        "Time (%)": "17.3",
+        "Total Time (ns)": "1400259216",
+        "Instances": "40896",
+        "Avg (ns)": "34239.5",
+        "Med (ns)": "34427.0",
+        "Min (ns)": "12702",
+        "Max (ns)": "659741",
+        "StdDev (ns)": "33473.4",
+        "Name": "void cutlass::device_kernel<enable_sm120_family<cutlass::gemm::kernel::GemmUniversal<cute::tuple<int, int, int, int>, cutlass::gemm::collective::CollectiveMma<cutlass::gemm::MainloopSm120TmaWarpSpecialized<(int)9, (int)2, cute::tuple<cute::C<(int)1>, cute::C<(int)1>, cute::C<(int)1>>, cutlass::gemm::KernelTmaWarpSpecializedPingpongSm120<(int)2>>, cute::tuple<cute::C<(int)16>, cute::C<(int)64>, cute::C<(int)128>>, cutlass::float_e4m3_t, cute::tuple<long, cute::C<(int)1>, long>, cutlass::float_e4m3_t, cute::tuple<long, cute::C<(int)1>, long>, cute::TiledMMA<cute::MMA_Atom<cute::SM120_16x8x32_TN<cutlass::float_e4m3_t, cutlass::float_e4m3_t, float>>, cute::Layout<cute::tuple<cute::C<(int)2>, cute::C<(int)2>, cute::C<(int)1>>, cute::tuple<cute::C<(int)1>, cute::C<(int)2>, cute::C<(int)0>>>, cute::tuple<cute::C<(int)16>, cute::C<(int)32>, cute::C<(int)32>>>, cute::SM90_TMA_LOAD, cute::ComposedLayout<cute::Swizzle<(int)3, (int)4, (int)3>, cute::smem_ptr_flag_bits<(int)8>, cute::Layout<cute::tuple<cute::C<(int)8>, cute::C<(int)128>>, cute::tuple<cute::C<(int)128>, cute::C<(int)1>>>>, cute::Copy_Atom<cute::SM75_U32x4_LDSM_N, unsigned char>, cute::identity, cute::SM90_TMA_LOAD, cute::ComposedLayout<cute::Swizzle<(int)3, (int)4, (int)3>, cute::smem_ptr_flag_bits<(int)8>, cute::Layout<cute::tuple<cute::C<(int)8>, cute::C<(int)128>>, cute::tuple<cute::C<(int)128>, cute::C<(int)1>>>>, cute::Copy_Atom<cute::SM75_U32x4_LDSM_N, unsigned char>, cute::identity>, cutlass::epilogue::collective::CollectiveEpilogue<cutlass::epilogue::Sm90TmaWarpSpecialized<(int)2, (int)2, (int)4, (bool)0, (bool)1>, cute::tuple<cute::C<(int)16>, cute::C<(int)64>, cute::C<(int)128>>, cute::tuple<cute::C<(int)16>, cute::C<(int)32>>, void, cute::tuple<long, cute::C<(int)1>, long>, cutlass::bfloat16_t, cute::tuple<long, cute::C<(int)1>, long>, cutlass::epilogue::fusion::Sm90TreeVisitor<cutlass::epilogue::fusion::Sm90Compute<cutlass::multiplies, cutlass::bfloat16_t, float, (cutlass::FloatRoundStyle)2, void>, cutlass::epilogue::fusion::Sm90ColOrScalarBroadcast<(int)0, cute::tuple<cute::C<(int)16>, cute::C<(int)64>, cute::C<(int)128>>, float, cute::tuple<cute::C<(int)1>, cute::C<(int)0>, cute::C<(int)0>>, (int)4>, cutlass::epilogue::fusion::Sm90TreeVisitor<cutlass::epilogue::fusion::Sm90Compute<cutlass::multiplies, float, float, (cutlass::FloatRoundStyle)2, void>, cutlass::epilogue::fusion::Sm90RowOrScalarBroadcast<(int)0, cute::tuple<cute::C<(int)16>, cute::C<(int)64>, cute::C<(int)128>>, float, cute::tuple<cute::C<(int)0>, cute::C<(int)1>, cute::C<(int)0>>, (int)4>, cutlass::epilogue::fusion::Sm90AccFetch>>, cute::SM90_TMA_LOAD, cute::ComposedLayout<cute::Swizzle<(int)2, (int)4, (int)3>, cute::smem_ptr_flag_bits<(int)16>, cute::Layout<cute::tuple<cute::C<(int)8>, cute::C<(int)32>>, cute::tuple<cute::C<(int)32>, cute::C<(int)1>>>>, cute::SM75_U32x2_LDSM_N, cute::SM90_TMA_STORE, cute::ComposedLayout<cute::Swizzle<(int)2, (int)4, (int)3>, cute::smem_ptr_flag_bits<(int)16>, cute::Layout<cute::tuple<cute::C<(int)8>, cute::C<(int)32>>, cute::tuple<cute::C<(int)32>, cute::C<(int)1>>>>, cute::SM90_U32x2_STSM_N, cute::Copy_Atom<cute::SM90_U32x2_STSM_N, cutlass::half_t>, void>, void, void>>>(T1::Params)"
+      },
+      {
+        "Time (%)": "9.8",
+        "Total Time (ns)": "790763435",
+        "Instances": "14280",
+        "Avg (ns)": "55375.6",
+        "Med (ns)": "56632.0",
+        "Min (ns)": "384",
+        "Max (ns)": "651647",
+        "StdDev (ns)": "36766.3",
+        "Name": "void at::native::vectorized_elementwise_kernel<(int)4, at::native::FillFunctor<int>, std::array<char *, (unsigned long)1>>(int, T2, T3)"
+      },
+      {
+        "Time (%)": "7.4",
+        "Total Time (ns)": "598585836",
+        "Instances": "432",
+        "Avg (ns)": "1385615.4",
+        "Med (ns)": "893514.0",
+        "Min (ns)": "193155",
+        "Max (ns)": "4138389",
+        "StdDev (ns)": "1171122.9",
+        "Name": "void cutlass::device_kernel<enable_sm120_family<cutlass::gemm::kernel::GemmUniversal<cute::tuple<int, int, int, int>, cutlass::gemm::collective::CollectiveMma<cutlass::gemm::MainloopSm120TmaWarpSpecialized<(int)2, (int)2, cute::tuple<cute::C<(int)1>, cute::C<(int)1>, cute::C<(int)1>>, cutlass::gemm::KernelTmaWarpSpecializedCooperativeSm120<(int)2>>, cute::tuple<cute::C<(int)128>, cute::C<(int)128>, cute::C<(int)128>>, cutlass::float_e4m3_t, cute::tuple<long, cute::C<(int)1>, long>, cutlass::float_e4m3_t, cute::tuple<long, cute::C<(int)1>, long>, cute::TiledMMA<cute::MMA_Atom<cute::SM120_16x8x32_TN<cutlass::float_e4m3_t, cutlass::float_e4m3_t, float>>, cute::Layout<cute::tuple<cute::C<(int)4>, cute::C<(int)2>, cute::C<(int)1>>, cute::tuple<cute::C<(int)1>, cute::C<(int)4>, cute::C<(int)0>>>, cute::tuple<cute::C<(int)128>, cute::C<(int)32>, cute::C<(int)32>>>, cute::SM90_TMA_LOAD, cute::ComposedLayout<cute::Swizzle<(int)3, (int)4, (int)3>, cute::smem_ptr_flag_bits<(int)8>, cute::Layout<cute::tuple<cute::C<(int)8>, cute::C<(int)128>>, cute::tuple<cute::C<(int)128>, cute::C<(int)1>>>>, cute::Copy_Atom<cute::SM75_U32x4_LDSM_N, unsigned char>, cute::identity, cute::SM90_TMA_LOAD, cute::ComposedLayout<cute::Swizzle<(int)3, (int)4, (int)3>, cute::smem_ptr_flag_bits<(int)8>, cute::Layout<cute::tuple<cute::C<(int)8>, cute::C<(int)128>>, cute::tuple<cute::C<(int)128>, cute::C<(int)1>>>>, cute::Copy_Atom<cute::SM75_U32x4_LDSM_N, unsigned char>, cute::identity>, cutlass::epilogue::collective::CollectiveEpilogue<cutlass::epilogue::Sm90TmaWarpSpecialized<(int)2, (int)2, (int)4, (bool)0, (bool)1>, cute::tuple<cute::C<(int)128>, cute::C<(int)128>, cute::C<(int)128>>, cute::tuple<cute::C<(int)64>, cute::C<(int)32>>, void, cute::tuple<long, cute::C<(int)1>, long>, cutlass::bfloat16_t, cute::tuple<long, cute::C<(int)1>, long>, cutlass::epilogue::fusion::Sm90TreeVisitor<cutlass::epilogue::fusion::Sm90Compute<cutlass::multiplies, cutlass::bfloat16_t, float, (cutlass::FloatRoundStyle)2, void>, cutlass::epilogue::fusion::Sm90ColOrScalarBroadcast<(int)0, cute::tuple<cute::C<(int)128>, cute::C<(int)128>, cute::C<(int)128>>, float, cute::tuple<cute::C<(int)1>, cute::C<(int)0>, cute::C<(int)0>>, (int)4>, cutlass::epilogue::fusion::Sm90TreeVisitor<cutlass::epilogue::fusion::Sm90Compute<cutlass::multiplies, float, float, (cutlass::FloatRoundStyle)2, void>, cutlass::epilogue::fusion::Sm90RowOrScalarBroadcast<(int)0, cute::tuple<cute::C<(int)128>, cute::C<(int)128>, cute::C<(int)128>>, float, cute::tuple<cute::C<(int)0>, cute::C<(int)1>, cute::C<(int)0>>, (int)4>, cutlass::epilogue::fusion::Sm90AccFetch>>, cute::SM90_TMA_LOAD, cute::ComposedLayout<cute::Swizzle<(int)2, (int)4, (int)3>, cute::smem_ptr_flag_bits<(int)16>, cute::Layout<cute::tuple<cute::C<(int)8>, cute::C<(int)32>>, cute::tuple<cute::C<(int)32>, cute::C<(int)1>>>>, cute::SM75_U32x2_LDSM_N, cute::SM90_TMA_STORE, cute::ComposedLayout<cute::Swizzle<(int)2, (int)4, (int)3>, cute::smem_ptr_flag_bits<(int)16>, cute::Layout<cute::tuple<cute::C<(int)8>, cute::C<(int)32>>, cute::tuple<cute::C<(int)32>, cute::C<(int)1>>>>, cute::SM90_U32x2_STSM_N, cute::Copy_Atom<cute::SM90_U32x2_STSM_N, cutlass::half_t>, void>, void, void>>>(T1::Params)"
+      },
+      {
+        "Time (%)": "3.3",
+        "Total Time (ns)": "269895494",
+        "Instances": "3580",
+        "Avg (ns)": "75389.8",
+        "Med (ns)": "66134.0",
+        "Min (ns)": "735",
+        "Max (ns)": "793034",
+        "StdDev (ns)": "69425.3",
+        "Name": "triton_"
+      },
+      {
+        "Time (%)": "2.8",
+        "Total Time (ns)": "226874035",
+        "Instances": "273",
+        "Avg (ns)": "831040.4",
+        "Med (ns)": "773260.0",
+        "Min (ns)": "769900",
+        "Max (ns)": "1347095",
+        "StdDev (ns)": "146591.8",
+        "Name": "std::enable_if<!T7, void>::type internal::gemvx::kernel<int, int, __nv_bfloat16, __nv_bfloat16, __nv_bfloat16, float, (bool)0, (bool)1, (bool)1, (bool)0, (int)6, (bool)0, cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<const __nv_bfloat16>, cublasGemvTensorStridedBatched<const __nv_bfloat16>, cublasGemvTensorStridedBatched<__nv_bfloat16>, float>>(T13)"
+      },
+      {
+        "Time (%)": "2.2",
+        "Total Time (ns)": "181829977",
+        "Instances": "9609",
+        "Avg (ns)": "18922.9",
+        "Med (ns)": "5471.0",
+        "Min (ns)": "4223",
+        "Max (ns)": "767374",
+        "StdDev (ns)": "60738.7",
+        "Name": "triton_red_fused__to_copy_abs_clamp_cutlass_scaled_mm_div_fused_add_rms_norm_max_mul_reciprocal_unsqueeze_4"
+      },
+      {
+        "Time (%)": "2.1",
+        "Total Time (ns)": "170174314",
+        "Instances": "232",
+        "Avg (ns)": "733510.0",
+        "Med (ns)": "434446.5",
+        "Min (ns)": "61367",
+        "Max (ns)": "2046348",
+        "StdDev (ns)": "657278.3",
+        "Name": "void cutlass::device_kernel<enable_sm120_family<cutlass::gemm::kernel::GemmUniversal<cute::tuple<int, int, int, int>, cutlass::gemm::collective::CollectiveMma<cutlass::gemm::MainloopSm120TmaWarpSpecialized<(int)2, (int)2, cute::tuple<cute::C<(int)1>, cute::C<(int)1>, cute::C<(int)1>>, cutlass::gemm::KernelTmaWarpSpecializedCooperativeSm120<(int)2>>, cute::tuple<cute::C<(int)128>, cute::C<(int)128>, cute::C<(int)128>>, cutlass::float_e4m3_t, cute::tuple<long, cute::C<(int)1>, long>, cutlass::float_e4m3_t, cute::tuple<long, cute::C<(int)1>, long>, cute::TiledMMA<cute::MMA_Atom<cute::SM120_16x8x32_TN<cutlass::float_e4m3_t, cutlass::float_e4m3_t, float>>, cute::Layout<cute::tuple<cute::C<(int)4>, cute::C<(int)2>, cute::C<(int)1>>, cute::tuple<cute::C<(int)1>, cute::C<(int)4>, cute::C<(int)0>>>, cute::tuple<cute::C<(int)128>, cute::C<(int)32>, cute::C<(int)32>>>, cute::SM90_TMA_LOAD, cute::ComposedLayout<cute::Swizzle<(int)3, (int)4, (int)3>, cute::smem_ptr_flag_bits<(int)8>, cute::Layout<cute::tuple<cute::C<(int)8>, cute::C<(int)128>>, cute::tuple<cute::C<(int)128>, cute::C<(int)1>>>>, cute::Copy_Atom<cute::SM75_U32x4_LDSM_N, unsigned char>, cute::identity, cute::SM90_TMA_LOAD, cute::ComposedLayout<cute::Swizzle<(int)3, (int)4, (int)3>, cute::smem_ptr_flag_bits<(int)8>, cute::Layout<cute::tuple<cute::C<(int)8>, cute::C<(int)128>>, cute::tuple<cute::C<(int)128>, cute::C<(int)1>>>>, cute::Copy_Atom<cute::SM75_U32x4_LDSM_N, unsigned char>, cute::identity>, cutlass::epilogue::collective::CollectiveEpilogue<cutlass::epilogue::Sm90TmaWarpSpecialized<(int)2, (int)2, (int)4, (bool)0, (bool)1>, cute::tuple<cute::C<(int)128>, cute::C<(int)128>, cute::C<(int)128>>, cute::tuple<cute::C<(int)64>, cute::C<(int)32>>, void, cute::tuple<long, cute::C<(int)1>, long>, cutlass::bfloat16_t, cute::tuple<long, cute::C<(int)1>, long>, cutlass::epilogue::fusion::Sm90TreeVisitor<cutlass::epilogue::fusion::Sm90Compute<cutlass::homogeneous_multiply_add, cutlass::bfloat16_t, float, (cutlass::FloatRoundStyle)2, void>, cutlass::epilogue::fusion::Sm90ColOrScalarBroadcast<(int)0, cute::tuple<cute::C<(int)128>, cute::C<(int)128>, cute::C<(int)128>>, float, cute::tuple<cute::C<(int)1>, cute::C<(int)0>, cute::C<(int)0>>, (int)4>, cutlass::epilogue::fusion::Sm90TreeVisitor<cutlass::epilogue::fusion::Sm90Compute<cutlass::multiplies, float, float, (cutlass::FloatRoundStyle)2, void>, cutlass::epilogue::fusion::Sm90RowOrScalarBroadcast<(int)0, cute::tuple<cute::C<(int)128>, cute::C<(int)128>, cute::C<(int)128>>, float, cute::tuple<cute::C<(int)0>, cute::C<(int)1>, cute::C<(int)0>>, (int)4>, cutlass::epilogue::fusion::Sm90AccFetch>, cutlass::epilogue::fusion::Sm90RowBroadcast<(int)0, cute::tuple<cute::C<(int)128>, cute::C<(int)128>, cute::C<(int)128>>, cutlass::bfloat16_t, cutlass::bfloat16_t, cute::tuple<cute::C<(int)0>, cute::C<(int)1>, cute::C<(int)0>>, (int)8, (bool)0>>, cute::SM90_TMA_LOAD, cute::ComposedLayout<cute::Swizzle<(int)2, (int)4, (int)3>, cute::smem_ptr_flag_bits<(int)16>, cute::Layout<cute::tuple<cute::C<(int)8>, cute::C<(int)32>>, cute::tuple<cute::C<(int)32>, cute::C<(int)1>>>>, cute::SM75_U32x2_LDSM_N, cute::SM90_TMA_STORE, cute::ComposedLayout<cute::Swizzle<(int)2, (int)4, (int)3>, cute::smem_ptr_flag_bits<(int)16>, cute::Layout<cute::tuple<cute::C<(int)8>, cute::C<(int)32>>, cute::tuple<cute::C<(int)32>, cute::C<(int)1>>>>, cute::SM90_U32x2_STSM_N, cute::Copy_Atom<cute::SM90_U32x2_STSM_N, cutlass::half_t>, void>, void, void>>>(T1::Params)"
+      },
+      {
+        "Time (%)": "1.8",
+        "Total Time (ns)": "147085092",
+        "Instances": "10278",
+        "Avg (ns)": "14310.7",
+        "Med (ns)": "3199.0",
+        "Min (ns)": "3135",
+        "Max (ns)": "1013544",
+        "StdDev (ns)": "64279.2",
+        "Name": "triton_red_fused__to_copy_abs_clamp_cutlass_scaled_mm_div_max_mul_reciprocal_silu_slice_unsqueeze_3"
+      },
+      {
+        "Time (%)": "1.4",
+        "Total Time (ns)": "116518328",
+        "Instances": "10684",
+        "Avg (ns)": "10905.9",
+        "Med (ns)": "928.0",
+        "Min (ns)": "735",
+        "Max (ns)": "840354",
+        "StdDev (ns)": "43294.7",
+        "Name": "triton_red_fused_5"
+      }
+    ],
+    "top_cuda_apis": [
+      {
+        "Time (%)": "31.5",
+        "Total Time (ns)": "1747958214",
+        "Num Calls": "272",
+        "Avg (ns)": "6426317.0",
+        "Med (ns)": "5858421.5",
+        "Min (ns)": "4868741",
+        "Max (ns)": "158248893",
+        "StdDev (ns)": "9249614.0",
+        "Name": "cudaEventSynchronize"
+      },
+      {
+        "Time (%)": "27.5",
+        "Total Time (ns)": "1528019911",
+        "Num Calls": "462",
+        "Avg (ns)": "3307402.4",
+        "Med (ns)": "10233.0",
+        "Min (ns)": "1212",
+        "Max (ns)": "36501817",
+        "StdDev (ns)": "8191286.2",
+        "Name": "cudaDeviceSynchronize"
+      },
+      {
+        "Time (%)": "21.8",
+        "Total Time (ns)": "1211313512",
+        "Num Calls": "3306",
+        "Avg (ns)": "366398.5",
+        "Med (ns)": "4843.5",
+        "Min (ns)": "1061",
+        "Max (ns)": "84967221",
+        "StdDev (ns)": "2434461.0",
+        "Name": "cudaMemcpyAsync"
+      },
+      {
+        "Time (%)": "9.4",
+        "Total Time (ns)": "521425631",
+        "Num Calls": "26368",
+        "Avg (ns)": "19774.9",
+        "Med (ns)": "2214.0",
+        "Min (ns)": "781",
+        "Max (ns)": "252003108",
+        "StdDev (ns)": "1736776.8",
+        "Name": "cudaLaunchKernel"
+      },
+      {
+        "Time (%)": "2.2",
+        "Total Time (ns)": "120245498",
+        "Num Calls": "5",
+        "Avg (ns)": "24049099.6",
+        "Med (ns)": "44456.0",
+        "Min (ns)": "27127",
+        "Max (ns)": "120087717",
+        "StdDev (ns)": "53687220.1",
+        "Name": "cudaMemGetInfo"
+      },
+      {
+        "Time (%)": "2.1",
+        "Total Time (ns)": "119153954",
+        "Num Calls": "38",
+        "Avg (ns)": "3135630.4",
+        "Med (ns)": "1938205.0",
+        "Min (ns)": "78555",
+        "Max (ns)": "21854314",
+        "StdDev (ns)": "3876250.3",
+        "Name": "cuLibraryLoadData"
+      },
+      {
+        "Time (%)": "0.9",
+        "Total Time (ns)": "47589320",
+        "Num Calls": "156",
+        "Avg (ns)": "305059.7",
+        "Med (ns)": "2494.5",
+        "Min (ns)": "1482",
+        "Max (ns)": "38885314",
+        "StdDev (ns)": "3157740.5",
+        "Name": "cudaHostAlloc"
+      },
+      {
+        "Time (%)": "0.6",
+        "Total Time (ns)": "31737555",
+        "Num Calls": "1844",
+        "Avg (ns)": "17211.3",
+        "Med (ns)": "5009.0",
+        "Min (ns)": "931",
+        "Max (ns)": "362324",
+        "StdDev (ns)": "32157.4",
+        "Name": "cudaStreamSynchronize"
+      },
+      {
+        "Time (%)": "0.5",
+        "Total Time (ns)": "30322644",
+        "Num Calls": "274",
+        "Avg (ns)": "110666.6",
+        "Med (ns)": "84967.0",
+        "Min (ns)": "7523",
+        "Max (ns)": "1567231",
+        "StdDev (ns)": "125035.7",
+        "Name": "cudaMalloc"
+      },
+      {
+        "Time (%)": "0.5",
+        "Total Time (ns)": "27397578",
+        "Num Calls": "189",
+        "Avg (ns)": "144960.7",
+        "Med (ns)": "62357.0",
+        "Min (ns)": "45819",
+        "Max (ns)": "3352928",
+        "StdDev (ns)": "418891.1",
+        "Name": "cudaGraphInstantiateWithFlags"
+      }
+    ]
+  }
+]

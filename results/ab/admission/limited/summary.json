@@ -1,0 +1,10 @@
+{
+  "variant": "limited",
+  "offered": 160,
+  "accepted": 10,
+  "rejected": 150,
+  "wall_s": 7.057,
+  "accepted_ttft_p95_ms": 39.53,
+  "slo_goodput_rps": 1.417,
+  "accepted_slo_pass_pct": 100.0
+}

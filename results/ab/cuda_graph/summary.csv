@@ -1,0 +1,3 @@
+scenario,concurrency,request_count,input_tokens_mean,output_tokens_total,ttft_mean_ms,ttft_p50_ms,ttft_p95_ms,e2e_p50_ms,e2e_p95_ms,decode_tok_s_mean,aggregate_tok_s_mean,gpu_util_mean_pct,gpu_memory_peak_mib,gpu_power_mean_w
+concurrency_1,1,5,2074,1280,32.41,30.9,36.15,2691.1,2692.78,96.62,95.43,99.82,28757.0,510.11
+concurrency_8,8,40,2074,10240,169.03,76.16,554.36,3126.51,3610.77,84.41,635.67,100.0,28756.0,466.47

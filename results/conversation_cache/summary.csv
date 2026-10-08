@@ -1,0 +1,7 @@
+turn,target_cumulative_history_tokens,prompt_tokens_mean,cache_hit_rate_mean_pct,ttft_mean_ms,samples
+1,0,2106.8,0.0,189.03,5
+2,512,2643.0,79.3,66.98,5
+3,1024,3179.2,83.04,68.01,5
+4,2048,4227.4,74.94,114.08,5
+5,4096,6299.6,67.05,227.16,5
+6,8192,10419.8,60.38,471.17,5

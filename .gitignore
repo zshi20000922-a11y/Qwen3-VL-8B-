@@ -1,0 +1,42 @@
+.venv*/
+venv/
+__pycache__/
+*.py[cod]
+run/
+logs/
+*.log
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Model weights are distributed separately from this source repository.
+models/
+
+# Profiler captures and local databases can be very large and are regenerated.
+*.nsys-rep
+*.ncu-rep
+*.sqlite
+*.sqlite3
+profiles/raw/
+profiles/invalid/*.nsys-rep
+profiles/export/*.csv
+profiles/logs/
+
+# Keep report source and reviewed result summaries; omit local build artifacts.
+portfolio-report/node_modules/
+portfolio-report/.openai/
+portfolio-report/AGENTS.md
+portfolio-report/docs/
+portfolio-report/protected-runtime.json
+portfolio-report/scripts/
+portfolio-report/src/
+portfolio-report/package.json
+portfolio-report/package-lock.json
+portfolio-report/index.html
+portfolio-report/vite.config.js

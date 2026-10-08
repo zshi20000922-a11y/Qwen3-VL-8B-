@@ -1,0 +1,2 @@
+variant,samples,prompt_tokens_mean,ttft_mean_ms,ttft_p50_ms,ttft_p95_ms,e2e_p50_ms
+compile,5,2059,334.54,333.15,337.61,502.08

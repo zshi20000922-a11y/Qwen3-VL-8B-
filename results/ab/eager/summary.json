@@ -1,0 +1,44 @@
+{
+  "metadata": {
+    "label": "eager",
+    "generated_at": "2026-09-09T14:48:28.073099+00:00",
+    "repeats": 5,
+    "max_tokens": 256
+  },
+  "scenarios": [
+    {
+      "scenario": "concurrency_1",
+      "concurrency": 1,
+      "request_count": 5,
+      "input_tokens_mean": 2074,
+      "output_tokens_total": 1280,
+      "ttft_mean_ms": 29.6,
+      "ttft_p50_ms": 28.81,
+      "ttft_p95_ms": 31.87,
+      "e2e_p50_ms": 2779.12,
+      "e2e_p95_ms": 2781.87,
+      "decode_tok_s_mean": 93.35,
+      "aggregate_tok_s_mean": 92.34,
+      "gpu_util_mean_pct": 100.0,
+      "gpu_memory_peak_mib": 28656.0,
+      "gpu_power_mean_w": 496.26
+    },
+    {
+      "scenario": "concurrency_8",
+      "concurrency": 8,
+      "request_count": 40,
+      "input_tokens_mean": 2074,
+      "output_tokens_total": 10240,
+      "ttft_mean_ms": 160.6,
+      "ttft_p50_ms": 71.24,
+      "ttft_p95_ms": 530.47,
+      "e2e_p50_ms": 3297.34,
+      "e2e_p95_ms": 3730.1,
+      "decode_tok_s_mean": 79.84,
+      "aggregate_tok_s_mean": 604.78,
+      "gpu_util_mean_pct": 98.83,
+      "gpu_memory_peak_mib": 28658.0,
+      "gpu_power_mean_w": 448.16
+    }
+  ]
+}

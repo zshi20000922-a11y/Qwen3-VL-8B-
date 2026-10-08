@@ -1,0 +1,17 @@
+{
+  "metadata": {
+    "variant": "default",
+    "warmups": 2,
+    "repeats": 5,
+    "image": "images/test.jpg"
+  },
+  "summary": {
+    "variant": "default",
+    "samples": 5,
+    "prompt_tokens_mean": 2059,
+    "ttft_mean_ms": 335.28,
+    "ttft_p50_ms": 335.22,
+    "ttft_p95_ms": 336.1,
+    "e2e_p50_ms": 501.89
+  }
+}

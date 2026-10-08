@@ -1,0 +1,2 @@
+variant,repeats,short_requests,short_ttft_p50_ms,short_ttft_p95_ms,short_tpot_p95_ms,long_ttft_p50_ms,long_e2e_p50_ms
+tokens_1024,5,20,1170.63,1173.3,11.79,1221.52,1427.6

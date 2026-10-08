@@ -1,0 +1,22 @@
+{
+  "comparison": "CUDA Graph vs enforce-eager",
+  "rows": [
+    {
+      "concurrency": 1,
+      "graph_tok_s": 95.43,
+      "eager_tok_s": 92.34,
+      "throughput_gain_pct": 3.3,
+      "p95_latency_reduction_pct": 3.2,
+      "resume_eligible": false
+    },
+    {
+      "concurrency": 8,
+      "graph_tok_s": 635.67,
+      "eager_tok_s": 604.78,
+      "throughput_gain_pct": 5.1,
+      "p95_latency_reduction_pct": 3.2,
+      "resume_eligible": true
+    }
+  ],
+  "claim_policy": "Only >=5% changes are resume-eligible."
+}

@@ -1,0 +1,17 @@
+{
+  "metadata": {
+    "variant": "compile",
+    "warmups": 2,
+    "repeats": 5,
+    "image": "images/test.jpg"
+  },
+  "summary": {
+    "variant": "compile",
+    "samples": 5,
+    "prompt_tokens_mean": 2059,
+    "ttft_mean_ms": 334.54,
+    "ttft_p50_ms": 333.15,
+    "ttft_p95_ms": 337.61,
+    "e2e_p50_ms": 502.08
+  }
+}

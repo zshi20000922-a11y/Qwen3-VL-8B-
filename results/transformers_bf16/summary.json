@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "generated_at": "2026-09-04T12:03:10.476849+00:00",
+    "framework": "transformers",
+    "torch": "2.10.0+cu128",
+    "cuda": "12.8",
+    "load_seconds": 2.2411127249943092,
+    "repeats": 5,
+    "max_tokens": 256
+  },
+  "scenarios": [
+    {
+      "scenario": "resolution_1280x720",
+      "request_count": 5,
+      "input_tokens_mean": 905,
+      "output_tokens_total": 1280,
+      "ttft_mean_ms": 137.91,
+      "ttft_p50_ms": 138.21,
+      "ttft_p95_ms": 138.3,
+      "e2e_p50_ms": 3627.41,
+      "e2e_p95_ms": 3628.41,
+      "decode_tok_s_mean": 73.09,
+      "e2e_tok_s_mean": 70.58,
+      "itl_p99_mean_ms": 14.11,
+      "peak_memory_mib": 17045.0
+    },
+    {
+      "scenario": "resolution_1920x1080",
+      "request_count": 5,
+      "input_tokens_mean": 2065,
+      "output_tokens_total": 1280,
+      "ttft_mean_ms": 308.29,
+      "ttft_p50_ms": 308.42,
+      "ttft_p95_ms": 309.03,
+      "e2e_p50_ms": 3857.05,
+      "e2e_p95_ms": 3859.98,
+      "decode_tok_s_mean": 71.87,
+      "e2e_tok_s_mean": 66.38,
+      "itl_p99_mean_ms": 14.32,
+      "peak_memory_mib": 17390.7
+    },
+    {
+      "scenario": "resolution_3840x2160",
+      "request_count": 5,
+      "input_tokens_mean": 8185,
+      "output_tokens_total": 1280,
+      "ttft_mean_ms": 1920.58,
+      "ttft_p50_ms": 1921.0,
+      "ttft_p95_ms": 1922.54,
+      "e2e_p50_ms": 5811.2,
+      "e2e_p95_ms": 5812.04,
+      "decode_tok_s_mean": 65.56,
+      "e2e_tok_s_mean": 44.06,
+      "itl_p99_mean_ms": 15.68,
+      "peak_memory_mib": 19314.9
+    },
+    {
+      "scenario": "resolution_640x360",
+      "request_count": 5,
+      "input_tokens_mean": 245,
+      "output_tokens_total": 1280,
+      "ttft_mean_ms": 44.96,
+      "ttft_p50_ms": 44.92,
+      "ttft_p95_ms": 45.38,
+      "e2e_p50_ms": 3526.38,
+      "e2e_p95_ms": 3527.48,
+      "decode_tok_s_mean": 73.28,
+      "e2e_tok_s_mean": 72.63,
+      "itl_p99_mean_ms": 14.08,
+      "peak_memory_mib": 16821.1
+    }
+  ]
+}

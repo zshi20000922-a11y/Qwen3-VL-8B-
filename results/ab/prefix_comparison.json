@@ -1,0 +1,20 @@
+{
+  "comparison": "prefix cache on vs off",
+  "rows": [
+    {
+      "concurrency": 1,
+      "prefix_on_ttft_p50_ms": 31.89,
+      "prefix_off_ttft_p50_ms": 30.82,
+      "ttft_reduction_pct": -3.5,
+      "throughput_gain_pct": 0.1
+    },
+    {
+      "concurrency": 8,
+      "prefix_on_ttft_p50_ms": 75.72,
+      "prefix_off_ttft_p50_ms": 71.7,
+      "ttft_reduction_pct": -5.6,
+      "throughput_gain_pct": -2.2
+    }
+  ],
+  "warning": "Repeated-image/template workload; do not generalize to unrelated prompts."
+}

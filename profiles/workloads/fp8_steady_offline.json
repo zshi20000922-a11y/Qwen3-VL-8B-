@@ -1,0 +1,9 @@
+{
+  "variant": "fp8",
+  "scenario": "steady",
+  "output_tokens": 256,
+  "e2e_ms": 1857.941889000358,
+  "output_tok_s": 137.7868713309099,
+  "image": "images/test.jpg",
+  "profiling_mode": "vllm_offline_single_process_same_model_kernels"
+}

@@ -1,0 +1,5 @@
+scenario,request_count,input_tokens_mean,output_tokens_total,ttft_mean_ms,ttft_p50_ms,ttft_p95_ms,e2e_p50_ms,e2e_p95_ms,decode_tok_s_mean,e2e_tok_s_mean,itl_p99_mean_ms,peak_memory_mib
+resolution_1280x720,5,905,1280,137.91,138.21,138.3,3627.41,3628.41,73.09,70.58,14.11,17045.0
+resolution_1920x1080,5,2065,1280,308.29,308.42,309.03,3857.05,3859.98,71.87,66.38,14.32,17390.7
+resolution_3840x2160,5,8185,1280,1920.58,1921.0,1922.54,5811.2,5812.04,65.56,44.06,15.68,19314.9
+resolution_640x360,5,245,1280,44.96,44.92,45.38,3526.38,3527.48,73.28,72.63,14.08,16821.1

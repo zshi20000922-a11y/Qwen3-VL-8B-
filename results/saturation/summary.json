@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "generated_at": "2026-09-10T13:54:52.956951+00:00",
+    "model": "Qwen3-VL-8B-Instruct",
+    "repeats": 3,
+    "max_tokens": 128,
+    "ttft_slo_ms": 500,
+    "tpot_slo_ms": 30,
+    "cache_policy": "unique nonce in first text block; image processor cache may hit"
+  },
+  "scenarios": [
+    {
+      "concurrency": 1,
+      "requests": 3,
+      "ttft_p50_ms": 189.39,
+      "ttft_p95_ms": 189.74,
+      "tpot_p50_ms": 11.21,
+      "tpot_p95_ms": 11.24,
+      "e2e_p95_ms": 1617.35,
+      "aggregate_output_tok_s": 79.26,
+      "request_throughput_rps": 0.619,
+      "goodput_rps": 0.619,
+      "slo_pass_rate_pct": 100.0
+    },
+    {
+      "concurrency": 2,
+      "requests": 6,
+      "ttft_p50_ms": 349.8,
+      "ttft_p95_ms": 362.06,
+      "tpot_p50_ms": 11.68,
+      "tpot_p95_ms": 11.72,
+      "e2e_p95_ms": 1840.42,
+      "aggregate_output_tok_s": 139.11,
+      "request_throughput_rps": 1.087,
+      "goodput_rps": 1.087,
+      "slo_pass_rate_pct": 100.0
+    },
+    {
+      "concurrency": 4,
+      "requests": 12,
+      "ttft_p50_ms": 591.73,
+      "ttft_p95_ms": 701.0,
+      "tpot_p50_ms": 13.08,
+      "tpot_p95_ms": 14.98,
+      "e2e_p95_ms": 2280.07,
+      "aggregate_output_tok_s": 224.82,
+      "request_throughput_rps": 1.756,
+      "goodput_rps": 0.439,
+      "slo_pass_rate_pct": 25.0
+    },
+    {
+      "concurrency": 8,
+      "requests": 24,
+      "ttft_p50_ms": 940.1,
+      "ttft_p95_ms": 1402.4,
+      "tpot_p50_ms": 16.71,
+      "tpot_p95_ms": 20.89,
+      "e2e_p95_ms": 3095.73,
+      "aggregate_output_tok_s": 329.19,
+      "request_throughput_rps": 2.572,
+      "goodput_rps": 0.321,
+      "slo_pass_rate_pct": 12.5
+    },
+    {
+      "concurrency": 16,
+      "requests": 48,
+      "ttft_p50_ms": 2410.69,
+      "ttft_p95_ms": 4417.52,
+      "tpot_p50_ms": 19.65,
+      "tpot_p95_ms": 20.91,
+      "e2e_p95_ms": 6120.38,
+      "aggregate_output_tok_s": 333.17,
+      "request_throughput_rps": 2.603,
+      "goodput_rps": 0.108,
+      "slo_pass_rate_pct": 4.17
+    },
+    {
+      "concurrency": 32,
+      "requests": 96,
+      "ttft_p50_ms": 5466.14,
+      "ttft_p95_ms": 10414.73,
+      "tpot_p50_ms": 19.75,
+      "tpot_p95_ms": 20.98,
+      "e2e_p95_ms": 12149.9,
+      "aggregate_output_tok_s": 334.67,
+      "request_throughput_rps": 2.615,
+      "goodput_rps": 0.082,
+      "slo_pass_rate_pct": 3.12
+    }
+  ]
+}
